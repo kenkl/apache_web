@@ -1,0 +1,18 @@
+# For copypasta: docker-compose up --build -d
+# Have Fun!
+---
+version: '3'
+services:
+  apache7:
+    build: apache7
+    image: apache7
+    container_name: apache7
+    volumes:
+    - /etc/comporium:/etc/comporium
+    - /docker/apache7/www:/var/www/html
+    ports:
+    - '8880:80/tcp'
+    - '8443:443/tcp'
+    environment:
+    - TZ="America/New_York"
+    restart: always
