@@ -21,6 +21,9 @@ RUN ln -sf /dev/stdout /var/log/apache2/access.log && \
     ln -sf /dev/stderr /var/log/apache2/error.log
 RUN mkdir -p $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_LOG_DIR
 
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf 
+COPY xdebug.ini /etc/php/7.1/mods-available/xdebug.ini
+
 
 VOLUME [ "/var/www/html" ]
 WORKDIR /var/www/html
